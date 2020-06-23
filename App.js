@@ -1,19 +1,23 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, StatusBar, SafeAreaView } from "react-native";
+import { Provider } from "react-redux";
+import { Expense } from "./src/containers";
+import store from "./src/appStore/store";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor="#f8f9f9" barStyle="dark-content" />
+        <Expense />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#ffffff",
   },
 });
